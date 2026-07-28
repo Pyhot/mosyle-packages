@@ -55,3 +55,4 @@ Dépôt GitHub pour héberger les PKG à déployer via Mosyle MDM.
 - Sécurité chaîne de déploiement : compte GitHub Pyhot = maillon root du parc → 2FA obligatoire ; garder « Validate file integrity » (MD5) coché dans Mosyle
 
 - ⚠️ Double numérotation Drive Client : version PUBLIQUE affichée (ex. 4.0.3-17892, site + fenêtre À propos) ≠ version INTERNE du bundle (ex. 8.0.3, Info.plist) — MOSYLE compare la version INTERNE → App Version = toujours celle lue via `defaults read .../Info.plist CFBundleShortVersionString`. Le build (17892) est commun aux deux.
+- « Configure Apps and Books (VPP) licenses » : OFF — ne concerne que les apps App Store (canal VPP), pas les PKG ; à revoir seulement si canal VPP ouvert ET apps pré-installées manuellement par les utilisateurs (elles resteraient non gérées)
