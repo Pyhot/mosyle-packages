@@ -11,7 +11,7 @@ Dépôt GitHub pour héberger les PKG à déployer via Mosyle MDM.
 |---------|---------|-----------|-----|-------|------------|
 | Install Synology Drive Client.pkg | 8.0.3-17892 (28/07/2026) | `com.synology.CloudStation` | `6d4290588345cc958c0ea6f2371ddd23` | Tout le parc | `https://github.com/Pyhot/mosyle-packages/raw/main/Install%20Synology%20Drive%20Client.pkg` |
 | AlDente.pkg | 1.36.3 (pkg non signé, app signée AppHouseKitchen) | `com.apphousekitchen.aldente-pro` | `9360fd1b40d17ee0ff8e979658a5afb9` | MacBooks UNIQUEMENT (batterie) | `https://github.com/Pyhot/mosyle-packages/raw/main/AlDente.pkg` |
-| OnyX.pkg | 4.9.4 — **NON DÉPLOYÉ** (décision 28/07/2026) | — | — | Install manuelle au besoin | — |
+| ~~OnyX.pkg~~ | **SUPPRIMÉ** du dépôt + fiche Mosyle à Delete (28/07/2026) | — | — | Au besoin : télécharger la version courante sur le site Titanium, adaptée au macOS de la machine (1 version OnyX = 1 version macOS) | — |
 | Pearcleaner.pkg | 5.4.3 (pkg non signé, app signée M. Lupascu) | `com.alienator88.Pearcleaner` | `66fc8cbc6fa892d2709cdd4f64521414` | Tout le parc | `https://github.com/Pyhot/mosyle-packages/raw/main/Pearcleaner.pkg` |
 
 ## Déploiement des pkg NON SIGNÉS (AlDente, Pearcleaner) — plan 28/07/2026
