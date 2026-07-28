@@ -21,6 +21,7 @@ Dépôt GitHub pour héberger les PKG à déployer via Mosyle MDM.
 - OnyX : écarté du déploiement MDM — build spécifique à chaque version de macOS + Full Disk Access à accorder manuellement + outil d'usage ponctuel.
 
 ## Procédure de mise à jour d'un PKG (méthode validée 28/07/2026)
+**Raccourci : `./update_pkg.sh /chemin/nouveau.pkg "Nom Dans Le Depot.pkg"`** — fait les étapes 2 à 5 tout seul et affiche le MD5 à coller dans Mosyle. Détail manuel :
 1. Télécharger le .dmg Synology → monter → extraire le `.pkg` signé
 2. Vérifier signature : `pkgutil --check-signature` (Developer ID Synology Inc. + notarisation)
 3. Remplacer le fichier dans ce dépôt **SOUS LE MÊME NOM** (l'URL Mosyle ne change alors pas)
