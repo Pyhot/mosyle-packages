@@ -54,3 +54,5 @@ Dépôt GitHub pour héberger les PKG à déployer via Mosyle MDM.
 - Dépôt passé PUBLIC le 28/07/2026 (audit confidentialité OK : 0 secret, emails noreply, config propre)
 - ⚠️ AlDente.pkg, OnyX.pkg, Pearcleaner.pkg = NON SIGNÉS (constaté 28/07/2026) → échoueront probablement via MDM ; re-générer depuis les installeurs officiels signés avant tout déploiement. Seul Drive Client est signé + notarié
 - Sécurité chaîne de déploiement : compte GitHub Pyhot = maillon root du parc → 2FA obligatoire ; garder « Validate file integrity » (MD5) coché dans Mosyle
+
+- ⚠️ Double numérotation Drive Client : version PUBLIQUE affichée (ex. 4.0.3-17892, site + fenêtre À propos) ≠ version INTERNE du bundle (ex. 8.0.3, Info.plist) — MOSYLE compare la version INTERNE → App Version = toujours celle lue via `defaults read .../Info.plist CFBundleShortVersionString`. Le build (17892) est commun aux deux.
