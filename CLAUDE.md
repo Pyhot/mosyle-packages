@@ -27,6 +27,9 @@ Dépôt GitHub pour héberger les PKG à déployer via Mosyle MDM.
 - AlDente : Apple Protocol DÉCOCHÉ (non signé) · option retenue possible = Self-Service sur groupe MacBooks (au lieu d'imposer) · Reinstall OFF
 - Parc en Device Enrollment (ABM) — la contrainte « User Enrollment → Apple Protocol obligatoire » ne s'applique pas
 - Les options par-app écrasent celles du profil en cas de conflit
+- **Update Apps = « Update outdated apps automatically without alerting end users »** sur toutes les apps → une maj = changer pkg + App Version, les Macs en retard se mettent à jour seuls (Resend = seulement pour forcer tout de suite)
+- **Mosyle Embark = OFF** pour Drive Client (règle historique : à installer APRÈS l'enrollment, pas pendant)
+- **Règle de tri pour toute NOUVELLE app** : dispo sur le Mac App Store → canal VPP/Apps and Books via ABM (zéro pkg, zéro URL, maj auto par Apple) ; sinon → ce dépôt + profil PKG
 
 ## Procédure de mise à jour d'un PKG (méthode validée 28/07/2026)
 **Raccourci : `./update_pkg.sh /chemin/nouveau.pkg "Nom Dans Le Depot.pkg"`** — fait les étapes 2 à 5 tout seul et affiche le MD5 à coller dans Mosyle. Détail manuel :
