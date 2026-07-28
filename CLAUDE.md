@@ -20,16 +20,15 @@ Dépôt GitHub pour héberger les PKG à déployer via Mosyle MDM.
 - **Étape 2 (si échec)** : Apple Developer Program (~99 €/an, décision PYD) → certificat « Developer ID Installer » → `productsign --sign "Developer ID Installer: ..." brut.pkg signé.pkg` → re-push.
 - OnyX : écarté du déploiement MDM — build spécifique à chaque version de macOS + Full Disk Access à accorder manuellement + outil d'usage ponctuel.
 
-## Réglages Mosyle par app (actés 28/07/2026)
-- « Install with Apple Protocol » = paquets SIGNÉS uniquement (canal MDM natif) ; décoché = installation par l'agent Mosyle (tolère les non signés)
-- Drive Client : Apple Protocol décoché (homogénéité) · Auto-Install ON · pas de pop-up · **Reinstall ON** (outil socle, synchro MagiCloud)
-- Pearcleaner : Apple Protocol DÉCOCHÉ (non signé) · Auto-Install ON · Reinstall OFF
-- AlDente : Apple Protocol DÉCOCHÉ (non signé) · option retenue possible = Self-Service sur groupe MacBooks (au lieu d'imposer) · Reinstall OFF
+## Réglages Mosyle (actés 28/07/2026 — DÉCISION PYD : tout auto, tout le parc)
+- ⚠️ CONSTAT console : le bloc « Configure App Auto Install and Update » est au niveau du PROFIL InstallApps, COMMUN à toutes les apps (pas séparable par app). La granularité = appartenance au profil. Décision PYD : UN SEUL profil, toutes les apps, tous les Macs.
+- **Bloc commun** : Auto-Install « Install all apps after saving the profile » · pop-up OFF · Self-Service « Show the apps » (bouton de réinstall manuelle) · **Reinstall ON** · **Update « automatically without alerting end users »**
+- Conséquence Update auto : une maj = remplacer le pkg (update_pkg.sh) + monter App Version sur la fiche → le parc se met à jour SEUL (plus besoin de Resend)
+- Conséquence acceptée : AlDente s'installe aussi sur les Mac sans batterie (inoffensif) ; si gênant un jour → 2e profil restreint au groupe MacBooks
+- Par FICHE (champ « This app is Signed ») : Drive Client = coché (signé+notarié) ; AlDente/Pearcleaner = DÉCOCHÉ (enveloppes non signées → voie agent Mosyle)
 - Parc en Device Enrollment (ABM) — la contrainte « User Enrollment → Apple Protocol obligatoire » ne s'applique pas
-- Les options par-app écrasent celles du profil en cas de conflit
-- **Update Apps = « Update outdated apps automatically without alerting end users »** sur toutes les apps → une maj = changer pkg + App Version, les Macs en retard se mettent à jour seuls (Resend = seulement pour forcer tout de suite)
 - **Mosyle Embark = OFF** pour Drive Client (règle historique : à installer APRÈS l'enrollment, pas pendant)
-- **Règle de tri pour toute NOUVELLE app** : dispo sur le Mac App Store → canal VPP/Apps and Books via ABM (zéro pkg, zéro URL, maj auto par Apple) ; sinon → ce dépôt + profil PKG
+- **Règle de tri pour toute NOUVELLE app** : dispo sur le Mac App Store → canal VPP/Apps and Books via ABM (zéro pkg, zéro URL, maj auto par Apple) ; sinon → ce dépôt + fiche PKG dans le profil InstallApps
 
 ## Procédure de mise à jour d'un PKG (méthode validée 28/07/2026)
 **Raccourci : `./update_pkg.sh /chemin/nouveau.pkg "Nom Dans Le Depot.pkg"`** — fait les étapes 2 à 5 tout seul et affiche le MD5 à coller dans Mosyle. Détail manuel :
