@@ -58,3 +58,4 @@ Dépôt GitHub pour héberger les PKG à déployer via Mosyle MDM.
 - « Configure Apps and Books (VPP) licenses » : OFF — ne concerne que les apps App Store (canal VPP), pas les PKG ; à revoir seulement si canal VPP ouvert ET apps pré-installées manuellement par les utilisateurs (elles resteraient non gérées)
 - 28/07/2026 : profil InstallApps v6 VALIDÉ et poussé — Apple Protocol décoché (confirmé PYD), tout auto, assignation « All current and future Devices » ; OnyX retiré ; en observation : statuts installed + verdict Pearcleaner (voie non signée)
 - 28/07/2026 soir : ✅ VALIDÉ EN RÉEL — 4/4 Macs vérifiés en 4.0.3-17892 (chaîne GitHub raw → Mosyle → MD5 → install + comparaison de version : tout fonctionne)
+- VSCode : installé À LA MAIN (hors pipeline Mosyle) sur Macs Thomas 28/07 + Anaïs 29/07 — besoin légitime, auto-update Microsoft intégré donc zéro maintenance ; ne PAS créer de fiche PKG
