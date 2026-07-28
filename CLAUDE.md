@@ -7,12 +7,18 @@ Dépôt GitHub pour héberger les PKG à déployer via Mosyle MDM.
 
 ## Packages disponibles
 
-| Package | Version | Taille | MD5 | URL Mosyle |
-|---------|---------|--------|-----|------------|
-| Install Synology Drive Client.pkg | 8.0.3-17892 (28/07/2026) | 157 MB | `6d4290588345cc958c0ea6f2371ddd23` | `https://github.com/Pyhot/mosyle-packages/raw/main/Install%20Synology%20Drive%20Client.pkg` |
-| AlDente.pkg | — | 11 MB | — | `https://github.com/Pyhot/mosyle-packages/raw/main/AlDente.pkg` |
-| OnyX.pkg | — | 6.9 MB | — | `https://github.com/Pyhot/mosyle-packages/raw/main/OnyX.pkg` |
-| Pearcleaner.pkg | — | 6.3 MB | — | `https://github.com/Pyhot/mosyle-packages/raw/main/Pearcleaner.pkg` |
+| Package | Version | Bundle ID | MD5 | Cible | URL Mosyle |
+|---------|---------|-----------|-----|-------|------------|
+| Install Synology Drive Client.pkg | 8.0.3-17892 (28/07/2026) | `com.synology.CloudStation` | `6d4290588345cc958c0ea6f2371ddd23` | Tout le parc | `https://github.com/Pyhot/mosyle-packages/raw/main/Install%20Synology%20Drive%20Client.pkg` |
+| AlDente.pkg | 1.36.3 (pkg non signé, app signée AppHouseKitchen) | `com.apphousekitchen.aldente-pro` | `9360fd1b40d17ee0ff8e979658a5afb9` | MacBooks UNIQUEMENT (batterie) | `https://github.com/Pyhot/mosyle-packages/raw/main/AlDente.pkg` |
+| OnyX.pkg | 4.9.4 — **NON DÉPLOYÉ** (décision 28/07/2026) | — | — | Install manuelle au besoin | — |
+| Pearcleaner.pkg | 5.4.3 (pkg non signé, app signée M. Lupascu) | `com.alienator88.Pearcleaner` | `66fc8cbc6fa892d2709cdd4f64521414` | Tout le parc | `https://github.com/Pyhot/mosyle-packages/raw/main/Pearcleaner.pkg` |
+
+## Déploiement des pkg NON SIGNÉS (AlDente, Pearcleaner) — plan 28/07/2026
+- Les .app à l'intérieur SONT signées Developer ID par leurs éditeurs ; seule l'enveloppe .pkg (fabriquée maison via `pkgbuild`, les éditeurs ne fournissent pas de pkg) est non signée.
+- **Étape 1 (gratuit)** : profil Mosyle avec « This app is Signed » DÉCOCHÉ → test sur 1 Mac. Si l'agent Mosyle installe les pkg non signés → terminé.
+- **Étape 2 (si échec)** : Apple Developer Program (~99 €/an, décision PYD) → certificat « Developer ID Installer » → `productsign --sign "Developer ID Installer: ..." brut.pkg signé.pkg` → re-push.
+- OnyX : écarté du déploiement MDM — build spécifique à chaque version de macOS + Full Disk Access à accorder manuellement + outil d'usage ponctuel.
 
 ## Procédure de mise à jour d'un PKG (méthode validée 28/07/2026)
 1. Télécharger le .dmg Synology → monter → extraire le `.pkg` signé
