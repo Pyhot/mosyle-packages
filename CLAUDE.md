@@ -56,3 +56,4 @@ Dépôt GitHub pour héberger les PKG à déployer via Mosyle MDM.
 
 - ⚠️ Double numérotation Drive Client : version PUBLIQUE affichée (ex. 4.0.3-17892, site + fenêtre À propos) ≠ version INTERNE du bundle (ex. 8.0.3, Info.plist) — MOSYLE compare la version INTERNE → App Version = toujours celle lue via `defaults read .../Info.plist CFBundleShortVersionString`. Le build (17892) est commun aux deux.
 - « Configure Apps and Books (VPP) licenses » : OFF — ne concerne que les apps App Store (canal VPP), pas les PKG ; à revoir seulement si canal VPP ouvert ET apps pré-installées manuellement par les utilisateurs (elles resteraient non gérées)
+- 28/07/2026 : profil InstallApps v6 VALIDÉ et poussé — Apple Protocol décoché (confirmé PYD), tout auto, assignation « All current and future Devices » ; OnyX retiré ; en observation : statuts installed + verdict Pearcleaner (voie non signée)
