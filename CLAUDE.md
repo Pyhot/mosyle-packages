@@ -30,4 +30,9 @@ Dépôt GitHub pour héberger les PKG à déployer via Mosyle MDM.
 - Limite GitHub web : 25 MB (contournée avec Git LFS)
 - Limite Git sans LFS : 100 MB (contournée avec Git LFS)
 - Synology DriveClient doit être installé APRÈS l'enrollment (pas pendant)
-- Le dépôt doit rester PUBLIC (Mosyle télécharge l'URL raw sans authentification)
+- ⚠️ Le dépôt est PRIVÉ (constaté 28/07/2026) → l'URL raw GitHub exige une authentification. Deux options : (a) passer le dépôt en public (contenu = logiciels publics, rien de sensible), ou (b) cocher « Needs authentication » dans Mosyle avec username GitHub + Personal Access Token (fine-grained, read-only sur ce dépôt). À trancher AVANT le Resend.
+- ⚠️ Les tâches « Configurer l'URL dans Mosyle » et « Tester le déploiement sur un Mac » n'ont jamais été cochées à l'époque → le téléchargement Mosyle→GitHub n'est peut-être JAMAIS passé en réel. Tester sur 1 Mac avant le parc.
+- JAMAIS d'upload de .pkg via l'interface web GitHub (limite 25 MB) → toujours `git push` en CLI, Git LFS gère
+- Dépôt passé PUBLIC le 28/07/2026 (audit confidentialité OK : 0 secret, emails noreply, config propre)
+- ⚠️ AlDente.pkg, OnyX.pkg, Pearcleaner.pkg = NON SIGNÉS (constaté 28/07/2026) → échoueront probablement via MDM ; re-générer depuis les installeurs officiels signés avant tout déploiement. Seul Drive Client est signé + notarié
+- Sécurité chaîne de déploiement : compte GitHub Pyhot = maillon root du parc → 2FA obligatoire ; garder « Validate file integrity » (MD5) coché dans Mosyle
