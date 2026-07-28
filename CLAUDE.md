@@ -20,6 +20,14 @@ Dépôt GitHub pour héberger les PKG à déployer via Mosyle MDM.
 - **Étape 2 (si échec)** : Apple Developer Program (~99 €/an, décision PYD) → certificat « Developer ID Installer » → `productsign --sign "Developer ID Installer: ..." brut.pkg signé.pkg` → re-push.
 - OnyX : écarté du déploiement MDM — build spécifique à chaque version de macOS + Full Disk Access à accorder manuellement + outil d'usage ponctuel.
 
+## Réglages Mosyle par app (actés 28/07/2026)
+- « Install with Apple Protocol » = paquets SIGNÉS uniquement (canal MDM natif) ; décoché = installation par l'agent Mosyle (tolère les non signés)
+- Drive Client : Apple Protocol décoché (homogénéité) · Auto-Install ON · pas de pop-up · **Reinstall ON** (outil socle, synchro MagiCloud)
+- Pearcleaner : Apple Protocol DÉCOCHÉ (non signé) · Auto-Install ON · Reinstall OFF
+- AlDente : Apple Protocol DÉCOCHÉ (non signé) · option retenue possible = Self-Service sur groupe MacBooks (au lieu d'imposer) · Reinstall OFF
+- Parc en Device Enrollment (ABM) — la contrainte « User Enrollment → Apple Protocol obligatoire » ne s'applique pas
+- Les options par-app écrasent celles du profil en cas de conflit
+
 ## Procédure de mise à jour d'un PKG (méthode validée 28/07/2026)
 **Raccourci : `./update_pkg.sh /chemin/nouveau.pkg "Nom Dans Le Depot.pkg"`** — fait les étapes 2 à 5 tout seul et affiche le MD5 à coller dans Mosyle. Détail manuel :
 1. Télécharger le .dmg Synology → monter → extraire le `.pkg` signé
